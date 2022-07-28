@@ -6,7 +6,7 @@ class Mind extends React.Component {
             list: [
                 'A', 'B', 'C'
             ],
-            indexs: 0
+            indexs: ''
         }
     }
     onMouseOver(index) {
@@ -16,8 +16,9 @@ class Mind extends React.Component {
         console.log(this.state.indexs);
     }
     onMouseOut() {
-        const p = document.getElementsByClassName('menu')[0];
-        p.className = ''
+        this.setState({
+            indexs: ''
+        })
     }
     render() {
         const { list, indexs } = this.state
