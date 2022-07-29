@@ -1,0 +1,33 @@
+button{
+margin-right: 70px;
+}
+body{
+    background-color: darkgrey;
+}
+.div{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    margin: -150px 0 0 -100px;
+}
+.box{
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.a{
+    background-color: white;
+    border: none;
+}
+.b{
+    background-color: blue;
+    border: none;
+}
+.c{
+    background-color: white;
+    border: 3px blue solid;
+}
