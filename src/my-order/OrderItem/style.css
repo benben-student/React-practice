@@ -1,0 +1,12 @@
+.orderItem__starorderItem__star--light{
+    background-color: red;
+}
+.orderItem__star{
+    background-color:white;
+}
+.orderItem__btn--red{
+    background-color: red;
+}
+.orderItem__btn--black{
+    background-color: gray;
+}
