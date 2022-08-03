@@ -12,7 +12,6 @@ class OrderItem extends React.Component {
   }
   render() {
     const { shop, product, price, picture, ifCommented } = this.props.data
-    console.log(shop, product, price, picture, ifCommented);
     return (
       <div className='orderItem'>
         <div className='orderItem__picContainer'>
@@ -24,7 +23,7 @@ class OrderItem extends React.Component {
           <div className='orderItem__detail'>
             <div className='orderItem__price'>{price}</div>
             <div>
-              {ifCommented ? <button className='orderItem__btn--red'>已评价</button> : <button className='' onClick={this.handleOpenArea.bind(this)}>评价</button>}
+              {ifCommented ? <button className='orderItem__btn--red'>已评价</button> : <button onClick={this.handleOpenArea.bind(this)}>评价</button>}
             </div>
           </div>
         </div>
@@ -50,7 +49,7 @@ class OrderItem extends React.Component {
           [1, 2, 3, 4, 5].map((item, index) => {
             const lightClass = stars >= item ? "orderItem__star--light" : "";
             return (
-              <span className={"orderItem__star"+lightClass} onClick={this.handleClickStars.bind(this, item)} key={index}>☆</span>
+              <span className={lightClass} onClick={this.handleClickStars.bind(this, item)} key={index}>★</span>
             )
           })
         }
@@ -69,7 +68,7 @@ class OrderItem extends React.Component {
   }
   handleClickStars = (stars) => {
     this.setState({
-      stars: stars
+      stars
     })
   }
   handleCanleComment() {

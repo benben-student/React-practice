@@ -1,8 +1,5 @@
-.orderItem__starorderItem__star--light{
-    background-color: red;
-}
-.orderItem__star{
-    background-color:white;
+.orderItem__star--light{
+    color: red;
 }
 .orderItem__btn--red{
     background-color: red;
