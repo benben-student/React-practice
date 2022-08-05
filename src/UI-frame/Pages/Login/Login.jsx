@@ -1,9 +1,24 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from 'antd';
+import axios from "axios";
+import Qs from "qs"
+
 
 const Login = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
+    //后台解决跨域：   "http://localhost:3001/api/login"
+    //前台解决跨域     "/api"
+    axios.post("/api/api/login", Qs.stringify(
+      {
+        username: values.username,
+        password: values.password
+      }
+    )).then(res => {
+      console.log(res.data);
+    }).catch(error => {
+      console.log(error);
+    })
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -73,6 +88,7 @@ const Login = () => {
           Submit
         </Button>
       </Form.Item>
+      <Button type="primary" htmlType="submit">Submit</Button>
     </Form>
   );
 };

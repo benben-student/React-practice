@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom/client';
 
 import AppRouter from './UI-frame/router/AppRouter';
 import "./index.css"
-import Http from './component/Http';
+// import Http from './component/Http';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -17,8 +17,8 @@ root.render(
 
     {/* <AppRouter /> */}
 
-    {/* <AppRouter /> */}
-    <Http/>
+    <AppRouter />
+    {/* <Http/> */}
   </React.StrictMode>
 );
 
