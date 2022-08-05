@@ -1,6 +1,6 @@
 import React from 'react';
 import Mind from './Mind';
-import Style from './Style.css'
+import  './Style.css'
 class App extends React.Component {
 
   render() {

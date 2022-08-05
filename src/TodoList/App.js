@@ -3,7 +3,7 @@ import Header from './Header';
 import Input from './Input';
 import List from './List';
 import Footer from './Footer';
-import Style from './Style.css'
+import  './Style.css'
 
 let id = 0;
 

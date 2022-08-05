@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from './Button';
-import Style from './Style.css'
+import  './Style.css'
 class App extends React.Component {
     render() {
         return (

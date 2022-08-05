@@ -1,5 +1,5 @@
 import React from "react";
-import style from './style.css'
+import  './style.css'
 class OrderItem extends React.Component {
     constructor(props) {
         super(props)
