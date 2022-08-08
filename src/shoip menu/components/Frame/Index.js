@@ -1,6 +1,6 @@
 import { Breadcrumb, Layout, Menu } from 'antd';
 import React from 'react';
-import { admirnRouters } from '../../routers';
+import { admirnRouters } from '../../Router';
 const { Content, Sider } = Layout;
 const routers = admirnRouters.filter(route => route.isShow)
 const App = (props) => (
