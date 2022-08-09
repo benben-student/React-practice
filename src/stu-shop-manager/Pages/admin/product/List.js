@@ -18,7 +18,7 @@ const dataSource = [{
 }]
 
 
-function List() {
+function List(props) {
   const columns = [{
     title: '序号',
     key: 'id',
@@ -51,7 +51,7 @@ function List() {
   }]
   return (
     <Card title="商品列表" extra={
-      <Button type='primary' size='small'>新增</Button>
+      <Button type='primary' size='small' onClick={()=>props.history.push("/admin/products/edit")}>新增</Button>
     }>
       <Table columns={columns} bordered dataSource={dataSource} />
     </Card>
