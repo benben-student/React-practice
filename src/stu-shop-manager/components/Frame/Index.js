@@ -1,9 +1,13 @@
 import { Breadcrumb, Layout, Menu } from 'antd';
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 import { admirnRouters } from '../../routers';
+
+
+
 const { Content, Sider } = Layout;
 const routers = admirnRouters.filter(route => route.isShow)
-const App = (props) => (
+const Index = (props) => (
   <Layout>
     <Sider>
       <Menu
@@ -13,7 +17,7 @@ const App = (props) => (
         style={{ height: "100%", borderRight: 0 }}
       >
         {routers.map(route => {
-          return (<Menu.Item key={route.path}>{route.title}</Menu.Item>)
+          return (<Menu.Item onClick={p=>props.history.push(p.key)} key={route.path}>{route.title}</Menu.Item>)
         })}
       </Menu>
     </Sider>
@@ -48,4 +52,4 @@ const App = (props) => (
   </Layout>
 );
 
-export default App;
+export default withRouter(Index);
