@@ -51,7 +51,7 @@ function List(props) {
   }]
   return (
     <Card title="商品列表" extra={
-      <Button type='primary' size='small' onClick={()=>props.history.push("/admin/products/edit")}>新增</Button>
+      <Button type='primary' size='small' onClick={()=>props.history.push("/admin/product/edit/")}>新增</Button>
     }>
       <Table columns={columns} bordered dataSource={dataSource} />
     </Card>

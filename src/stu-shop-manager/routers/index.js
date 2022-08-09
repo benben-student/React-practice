@@ -24,7 +24,7 @@ export const admirnRouters = [{
     exact:true,
     title:"商品管理"
 }, {
-    path: '/admin/product/edit/:id',
+    path: '/admin/product/edit/:id?',
     isShow:false,
     component: Edit
 }
