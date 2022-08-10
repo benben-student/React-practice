@@ -32,7 +32,8 @@ root.render(
             return <Route key={route.path} {...route}></Route>
           })
         }
-      <Redirect to="/404"></Redirect>
+      <Redirect to="/admin"/>
+      <Redirect to="/404"/>
       </Switch>
     </Router>
 

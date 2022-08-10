@@ -3,8 +3,9 @@ import '../index.css'
 import Frame from './components/Frame/Index'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { admirnRouters } from './routers'
+import { isLogined } from './utils/auth'
 function App() {
-    return (
+    return (isLogined() ? (
         <Frame>
             <Switch>
                 {admirnRouters.map(route => {
@@ -19,9 +20,13 @@ function App() {
                         />
                     )
                 })}
+                <Redirect to={admirnRouters[0].path} from="/admin" />
                 <Redirect to="/404" />
             </Switch>
-        </Frame>
+        </Frame>)
+        : (
+            <Redirect to="/login" />
+        )
     )
 }
 export default App
