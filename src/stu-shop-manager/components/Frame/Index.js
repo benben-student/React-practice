@@ -1,15 +1,33 @@
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Breadcrumb, Layout, Menu, Avatar, message } from 'antd';
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { admirnRouters } from '../../routers';
-
-
+import "./style.css"
+import { clearToken } from '../../utils/auth'
 
 const { Content, Sider } = Layout;
 const routers = admirnRouters.filter(route => route.isShow)
+
+const menu = (
+  <Menu
+    onClick={p => {
+      if (p.key == "logOut") {
+        clearToken()
+        this.props.history.push('/login')
+      } else {
+        message.info(p.key)
+      }
+    }}>
+    <Menu.Item key="noti">通知中心</Menu.Item>
+    <Menu.Item key="setting">设置</Menu.Item>
+    <Menu.Item key="logOut">退出</Menu.Item>
+  </Menu>
+);
 const Index = (props) => (
   <Layout>
-    <Sider>
+    <Sider >
       <Menu
         mode="inline"
         defaultSelectedKeys={["1"]}
@@ -17,10 +35,19 @@ const Index = (props) => (
         style={{ height: "100%", borderRight: 0 }}
       >
         {routers.map(route => {
-          return (<Menu.Item onClick={p=>props.history.push(p.key)} key={route.path}>{route.title}</Menu.Item>)
+          return (<Menu.Item onClick={p => props.history.push(p.key)} key={route.path}>{route.title}</Menu.Item>)
         })}
       </Menu>
     </Sider>
+    <Dropdown className='header' overlay={menu}>
+      <a onClick={(e) => e.preventDefault()}>
+        <Avatar>U</Avatar>
+        <Space>
+          Hover me
+          <DownOutlined />
+        </Space>
+      </a>
+    </Dropdown>
     <Layout>
 
       <Layout

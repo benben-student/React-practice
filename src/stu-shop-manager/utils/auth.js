@@ -10,3 +10,6 @@ export function isLogined() {
     }
     return false
 }
+export function clearToken() {
+    localStorage.removeItem("token")
+}
