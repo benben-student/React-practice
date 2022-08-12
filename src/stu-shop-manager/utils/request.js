@@ -1,4 +1,5 @@
 import axios from "axios";
+import {getToken} from './auth'
 
 const instance = axios.create({
     baseURL: "http://localhost:3000",
@@ -6,6 +7,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(function (config) {
+    config.headers["authorization"]="Bearer"+getToken()
     return config
 }, function (error) {
     return Promise.reject(error)

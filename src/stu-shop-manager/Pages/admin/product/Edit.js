@@ -1,5 +1,6 @@
 import { Button, Form, Input, message, Space } from 'antd';
-import React from 'react';
+import FormItem from 'antd/es/form/FormItem';
+import React,{useState,useEffect} from 'react';
 
 const Edit = () => {
   const [form] = Form.useForm();
@@ -50,6 +51,7 @@ const Edit = () => {
       >
         <Input placeholder="请请输入商品价格" />
       </Form.Item>
+      <Form.Item></Form.Item>
       <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit">

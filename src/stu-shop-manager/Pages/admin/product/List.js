@@ -1,7 +1,7 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Card, Button, Table } from 'antd'
 import { Popconfirm } from 'antd'
-
+import { listApi ,delOne} from '../../../services/products'
 
 const dataSource = [{
   id: 1,
@@ -19,6 +19,13 @@ const dataSource = [{
 
 
 function List(props) {
+  const {dataSource,setDataSouce}=useState([])
+  useEffect(()=>{
+    listApi().then(res=>{
+      console.log(res); 
+      setDataSouce(res.product)
+    })
+  },[])
   const columns = [{
     title: '序号',
     key: 'id',
@@ -41,6 +48,7 @@ function List(props) {
           onVisibleChange={()=>console.log("取消删除")}
           onConfirm={(()=>{
             console.log("确认删除")
+           
           })}
           >
             <Button style={{ margin: '0 1rem' }} type='danger' size='small'>删除</Button>
