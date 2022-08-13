@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, Icon, Input, Button, Checkbox, Card, message } from "antd";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { setToken } from '../utils/auth'
@@ -6,7 +7,7 @@ import "./style.css"
 
 
 function Login(props) {
-    const { getFieldDecorator } = props.form;
+  const { getFieldDecorator } = props.form;
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
@@ -35,8 +36,8 @@ function Login(props) {
       }
     });
   };
-    return (
-        <Card title="QF Admin SYS" className="login-form">
+  return (
+    <Card title="QF Admin SYS" className="login-form">
       <Form onSubmit={e => handleSubmit(e)}>
         <Form.Item>
           {getFieldDecorator("username", {
@@ -74,7 +75,7 @@ function Login(props) {
         </Form.Item>
       </Form>
     </Card>
-    )
+  )
 }
 
-export default (Login)
+export default Form.create({ name: "loginForm" })(Login);
