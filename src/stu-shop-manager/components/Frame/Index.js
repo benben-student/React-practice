@@ -79,4 +79,6 @@ const Index = (props) => (
   </Layout>
 );
 
-export default withRouter(Index);
+const mapStateToProps = (state) => state.app;
+
+export default connect(mapStateToProps)(withRouter(Index));

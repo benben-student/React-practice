@@ -6,64 +6,74 @@ import "./style.css"
 
 
 function Login(props) {
-    const onFinish = (values) => {
-        setToken(values.username)
-        props.history.push("/admin")
-        console.log('Received values of form: ', values);
-    };
+    const { getFieldDecorator } = props.form;
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log("Received values of form: ", values);
+        setToken(values.username);
+        props.history.push("/admin");
+        // loginApi({
+        //   userName: values.username,
+        //   password: values.password
+        // })
+        //   .then(res => {
+        //     if (res.code === "success") {
+        //       message.success("登录成功");
+        //       setToken(res.token);
+        //       props.history.push("/admin");
+        //     } else {
+        //       message.info(res.message);
+        //     }
+        //     // console.log(res);
+        //   })
+        //   .catch(err => {
+        //     // console.log(err);
+        //     message.error("用户不存在");
+        //   });
+      }
+    });
+  };
     return (
-        <Form
-            name="normal_login"
-            className="login-form"
-            initialValues={{
-                remember: true,
-            }}
-            onFinish={onFinish}
-        >
-            <Form.Item
-                name="username"
-                rules={[
-                    {
-                        required: true,
-                        message: '请输入用户名!',
-                    },
-                ]}
-            >
-                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
-            </Form.Item>
-            <Form.Item
-                name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: '请输入你的密码!',
-                    },
-                ]}
-            >
-                <Input
-                    prefix={<LockOutlined className="site-form-item-icon" />}
-                    type="password"
-                    placeholder="密码"
-                />
-            </Form.Item>
-            <Form.Item>
-                <Form.Item name="remember" valuePropName="checked" noStyle>
-                    <Checkbox>记住密码</Checkbox>
-                </Form.Item>
-
-                <a className="login-form-forgot" href="">
-                    忘记密码
-                </a>
-            </Form.Item>
-
-            <Form.Item>
-                <Button type="primary" htmlType="submit" className="login-form-button">
-                    登录
-                </Button>
-                <p3>或者</p3>
-                <Button type="primary" className="login-form-button"><a href="">现在注册!</a></Button>
-            </Form.Item>
-        </Form>
+        <Card title="QF Admin SYS" className="login-form">
+      <Form onSubmit={e => handleSubmit(e)}>
+        <Form.Item>
+          {getFieldDecorator("username", {
+            rules: [{ required: true, message: "请输入用户名!" }]
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+              placeholder="用户名"
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("password", {
+            rules: [{ required: true, message: "请输入密码!" }]
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+              type="password"
+              placeholder="密码"
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("remember", {
+            valuePropName: "checked",
+            initialValue: true
+          })(<Checkbox>记住我</Checkbox>)}
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+          >
+            登录
+          </Button>
+        </Form.Item>
+      </Form>
+    </Card>
     )
 }
 
