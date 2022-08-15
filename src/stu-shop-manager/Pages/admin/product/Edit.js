@@ -165,4 +165,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default Form.create({ name: "productEdit" })(Edit);

@@ -2,9 +2,9 @@ import React from 'react'
 import { Row, Col, Card, Statistic, Icon } from "antd";
 
 function Index() {
-    return (
-        <div>
-             <Card title="数据汇总" bordered={false}>
+  return (
+    <div>
+      <Card title="数据汇总" bordered={false}>
         <Row gutter={8}>
           <Col span={8}>
             <Card title="新增用户" color="red">
@@ -36,8 +36,8 @@ function Index() {
         </Row>
       </Card>
       <Card title="其他统计" bordered={false}></Card>
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Index

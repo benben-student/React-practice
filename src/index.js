@@ -11,10 +11,12 @@ import ReactDOM from 'react-dom/client';
 // import "./index.css"
 
 // import Http from './component/Http';
-import './index.css'
-import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import App from './stu-shop-manager/App'
-import { mainRouters } from './stu-shop-manager/routers/index';
+// import './index.css'
+// import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+// import App from './stu-shop-manager/App'
+// import { mainRouters } from './stu-shop-manager/routers/index';
+import Refs from './ref/Refs'
+// import RefsForward from './ref/RefsForward'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -24,7 +26,7 @@ root.render(
 
     {/* // <AppRouter /> */}
     {/* <Http/> */}
-    <Router>
+    {/* <Router>
       <Switch>
         <Route path="/admin" render={routeProps=><App {...routeProps}/>}/>
         {
@@ -35,7 +37,9 @@ root.render(
       <Redirect to="/admin"/>
       <Redirect to="/404"/>
       </Switch>
-    </Router>
+    </Router> */}
+
+<Refs/>
 
 
   </React.StrictMode>
