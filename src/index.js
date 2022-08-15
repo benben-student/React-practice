@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 // import App from './routers/App'
 // import App from './routers/App'
@@ -17,6 +17,7 @@ import ReactDOM from 'react-dom/client';
 // import { mainRouters } from './stu-shop-manager/routers/index';
 import Refs from './ref/Refs'
 // import RefsForward from './ref/RefsForward'
+import Demo from './Fragments/Demo'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -39,8 +40,8 @@ root.render(
       </Switch>
     </Router> */}
 
-<Refs/>
-
+    {/* <Refs/> */}
+    <Demo />
 
   </React.StrictMode>
 );
