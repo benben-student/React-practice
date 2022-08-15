@@ -8,14 +8,14 @@ class CustomTextInput extends React.Component {
         super(props)
         this.myRefs = React.createRef()
     }
-    focusTextInput =() => {
+    getInputValue = () => {
         console.log(this.myRefs.current.value);
     }
     render() {
         return (
             <div>
                 <input type="text" value="123" ref={this.myRefs} />
-                <input type="button" value="button" onClick={this.focusTextInput} />
+                <input type="button" value="button" onClick={this.getInputValue} />
             </div>
         )
     }
