@@ -70,7 +70,7 @@ import LocalContext from "./LocalContext";
 
 //Provider :提供数据
 //Consumer:消费数据
-const { Provider, Consumer } = LocalContext
+const BatteryContext = React.createContext();
 
 
 class ContextDemo extends React.Component {
@@ -86,20 +86,20 @@ class ContextDemo extends React.Component {
     render() {
         return (
             <div>
-                <Provider value={this.state.User}>
+                <BatteryContext.Provider value={this.state.User}>
                     <Container></Container>
-                </Provider>
+                </BatteryContext.Provider>
                 <hr />
                 <input
                     onClick={
                         () => this.setState(preState => {
-                            return{
-                                User: {...preState.User, age:preState.User.age+1}
+                            return {
+                                User: { ...preState.User, age: preState.User.age + 1 }
                             }
-                    })
-                }
-                value={this.state.User.name}
-                type="button"
+                        })
+                    }
+                    value={this.state.User.name}
+                    type="button"
                 />
             </div>
         )
@@ -111,22 +111,30 @@ function Container(props) {
     return <Title />
 }
 
-function Title(props) {
-    return (
-        <div>
-            <Consumer >{/*内部必须是一个函数*/}
-                {
-                    context => {
-                        return (
-                            <div>
-                                {context.name}--{context.age}
-                            </div>
-                        )
-                    }
-                }
-            </Consumer>
-        </div>
-    )
+class Title extends React.Component {
+    static contextType = BatteryContext
+    render() {
+        // return (
+        //     <div>
+        //         <Consumer >内部必须是一个函数
+        //             {
+        //                 context => {
+        //                     return (
+        //                         <div>
+        //                             {context.name}--{context.age}
+        //                         </div>
+        //                     )
+        //                 }
+        //             }
+        //         </Consumer> */}
+
+
+        //     </div>
+        // )
+        // contextType 修改后的Consumer
+        const context = this.context
+        return <div> {context.name}--{context.age}</div>
+    }
 }
 
 export default ContextDemo

@@ -1,0 +1,45 @@
+优点：通过组件树提供了一个传递数据的方法,从而避免了在每一个层级手动的传递 props 属性。
+缺点：大量使用Context会让组件变得不纯粹，一般在一个组件中使用一个Context就好
+1.先用React.CreateContext()  构建一个上下文
+可写在父组件也可以单独写在一个组件然后引用：
+export default React.CreateContext() ,
+
+在组件中 import 引用上面单独创建的组件
+
+然后 const { Provider, Consumer } =解析出单独的组件里的这两个
+
+
+2.    (1)Provider提供数据 :  在父组件里
+
+<Privider value={xxx}>
+	<>子组件<>
+<Privider>
+
+
+       (2)Consumer:消费数据 
+
+<Consumer  >   //内部必须是函数形式
+              context => {
+                        return (
+                            <div>
+                                {context.name}--{context.age}
+                            </div>
+                        )
+                    }
+<Consumer>
+
+3.class.contextType
+因为Consumer里面的代码必须是这个函数的返回值，contextType就就是为了修改这个函数
+
+
+//用static来声明contextType
+static contextType = BatteryContext
+
+//获取到一个新的属性。我们来接收他。
+const BatteryContext = React.createContext();
+
+//Consumer就可以完全不再使用了
+ render() {
+        const context = this.context
+        return <div> {context.name}--{context.age}</div>
+    }
