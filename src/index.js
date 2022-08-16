@@ -15,9 +15,9 @@ import ReactDOM from 'react-dom/client';
 // import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 // import App from './stu-shop-manager/App'
 // import { mainRouters } from './stu-shop-manager/routers/index';
-import Refs from './ref/Refs'
-// import RefsForward from './ref/RefsForward'
-import Demo from './Fragments/Demo'
+
+// import Propotypes from './Context/Prototypes'
+import ContextDemo from './Context/ContextDemo';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -40,8 +40,9 @@ root.render(
       </Switch>
     </Router> */}
 
-    {/* <Refs/> */}
-    <Demo />
+    <ContextDemo/>
+    {/* <Propotypes/> */}
+
 
   </React.StrictMode>
 );
