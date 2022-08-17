@@ -3,13 +3,15 @@ import React from "react";
 //晚上
 const night = {
     backgroundColor: "rgb(57, 61, 51)",
-    color: "white"
+    color: "white",
+    switch:"切换至白天"
 }
 
 //白天
 const day = {
     backgroundColor: "rgb(167, 179, 147)",
-    color: "black"
+    color: "black",
+    switch:"切换至黑夜"
 }
 
 const { Provider, Consumer } = React.createContext()
@@ -32,7 +34,7 @@ class LocalData extends React.Component {
         return (
             <Provider value={this.state.background}>
                 <div className="switchBackground">
-                    <button onClick={this.switchBackound}>Switch Background</button><br />
+                    <button onClick={this.switchBackound}>{this.state.background.switch}</button><br />
                 </div>
                 <SwitchBackground />
             </Provider>
