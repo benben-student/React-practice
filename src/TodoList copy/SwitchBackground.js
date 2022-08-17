@@ -9,7 +9,7 @@ const night = {
 
 //白天
 const day = {
-    backgroundColor: "rgb(167, 179, 147)",
+    backgroundColor: "white",
     color: "black",
     switch:"切换至黑夜"
 }
