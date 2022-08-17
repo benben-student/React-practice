@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './TodoList copy/App';
 // import App from './routers/App'
 // import App from './routers/App'
 // import AppRouter from './router/router/AppRouter';
@@ -17,7 +18,8 @@ import ReactDOM from 'react-dom/client';
 // import { mainRouters } from './stu-shop-manager/routers/index';
 
 // import Propotypes from './Context/Prototypes'
-import ContextDemo from './Context/ContextDemo';
+// import ContextDemo from './Context/ContextDemo';
+// import SwitchLanguage from './LanguageSwitching/SwitchLanguage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -39,11 +41,11 @@ root.render(
       <Redirect to="/404"/>
       </Switch>
     </Router> */}
-
-    <ContextDemo/>
+    {/* <SwitchLanguage/> */}
+    {/* <ContextDemo/> */}
     {/* <Propotypes/> */}
 
-
+    <App/>
   </React.StrictMode>
 );
 
